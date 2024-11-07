@@ -1,15 +1,4 @@
 // TODO: Create logic to toggle the light/dark mode styles for the page and circle. The mode should be saved to local storage.
-function changePageColor (color) {
-  let colorChoices = {}
-  if (color == "light") {
-    colorChoices.mode = 'light';
-    colorChoices.circle = 'U+2600, U+FE0F'
-  } else {
-    colorChoices.mode = 'dark';
-    colorChoices.circle = 'U+1F319'
-  }
-  localStorage.setItem("colors",JSON.stringify(colorChoices))
-}
 
 
 // TODO: Create a function called `readLocalStorage` that reads from local storage and returns the data. If no data exists, return an empty array.

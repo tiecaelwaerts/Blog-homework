@@ -1,7 +1,9 @@
-// TODO: Create a variable that selects the main element, and a variable that selects the back button element
+
 const mainElement = document.querySelector('main');
-const backButton = document.querySelector('.back-button');
+const backButton = document.querySelector('#back');
+
 // TODO: Create a function that builds an element and appends it to the DOM
+
 function createAndAppendElement(tagName, parentSelector, textContent) {
     const newElement = document.createElement(tagName);
     newElement.textContent = textContent;
@@ -15,6 +17,7 @@ function createAndAppendElement(tagName, parentSelector, textContent) {
     }
 }
 // TODO: Create a function that handles the case where there are no blog posts to display
+
 function displayBlogPosts() {
     const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
     const postsContainer = document.getElementById('postsContainer');
@@ -36,8 +39,41 @@ function displayBlogPosts() {
     }
 }
 
-// TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
+
+
+function renderBlogList() {
+
+const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+
+if (blogPosts.length > 0) {
+    blogPosts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.classList.add('blog-post');
+        postElement.innerHTML = `
+            <h2>${post.title}</h2>
+            <p>${post.username}</p>
+            <p>${post.content}</p>
+            `;
+        document.getElementById('blogList').appendChild(postElement);
+    });
+    }
+    else {
+        noPosts();
+    }
+}
+
+function noPosts() {
+    const messageElement = document.createElement('p');
+    messageElement.textContent = "No Blog posts yet...";
+    document.getElementById('blogList').appendChild(messageElement);
+}
 
 // TODO: Call the `renderBlogList` function
 
+renderBlogList();
+
 // TODO: Redirect to the home page using the `redirectPage` function found in logic.js when the back button is clicked
+
+backButton.addEventListener('click', function() {
+    redirectPage();
+});
