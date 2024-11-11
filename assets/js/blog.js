@@ -1,6 +1,6 @@
 
 const mainElement = document.querySelector('main');
-const backButton = document.querySelector('#back');
+const backButton = document.querySelector('back');
 
 // TODO: Create a function that builds an element and appends it to the DOM
 

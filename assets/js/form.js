@@ -7,9 +7,9 @@ const formElement = document.getElementById('blogForm');
 function handleFormSubmission(event) {
 event.preventDefault();
 
-const username = document.getElementById('username').ariaValueMax.trim();
-const title = document.getElementById('title').ariaValueMax.trim();
-const content = document.getElementById('content').ariaValueMax.trim();
+const username = document.getElementById('username').value.trim();
+const title = document.getElementById('title').value.trim();
+const content = document.getElementById('content').value.trim();
 const errorElement = document.getElementById('error');
 
 errorElement.textContent = '';
