@@ -7,9 +7,9 @@ const formElement = document.getElementById('blogForm');
 function handleFormSubmission(event) {
 event.preventDefault();
 
-const username = document.getElementById('username').value.trim();
-const title = document.getElementById('title').value.trim();
-const content = document.getElementById('content').value.trim();
+const username = document.getElementById('username').value;
+const title = document.getElementById('title').value;
+const content = document.getElementById('content').value;
 const errorElement = document.getElementById('error');
 
 errorElement.textContent = '';
@@ -25,17 +25,14 @@ const blogPost = {
     content: content
 };
 
-const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-blogPosts.push(blogPost);
-localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+let blogPosts = JSON.parse(localStorage.getItem('blogPost')) || [];
+blogPost.push(blogPosts);
+localStorage.setItem('blogPost', JSON.stringify(blogPost));
 
-redirectPage();
+window.location.href = 'blog.html';
 
 }
 
-function redirectPage() {
-    window.location.href = 'blog.html';
-}
 
 // TODO: Add an event listener to the form on submit. Call the function to handle the form submission.
 

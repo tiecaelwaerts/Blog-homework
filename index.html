@@ -13,9 +13,17 @@
     <script defer src="./assets/js/form.js" type="text/javascript"></script>
   </head>
 <body>
-<h2>What's on your mind?</h2>
+<header>
+  <button id="toggle">Light/Dark Mode</button>
+</header>
+<main>
+  <aside class="circle">
+    <h2>My First Blog</h2>
+  </aside>
 
+<section>
 <form id="blogForm" action="submit" method="post">
+  <h2>What's on your mind?</h2>
 <label for="username">Username:</label>
 <input type="text" id="username" username="username" required>
 
@@ -27,7 +35,9 @@
 
 <p id="error" style="color: red; display: none;">Please complete the form.</p>
 
-<button type="submit">Submit</button>
+<input type="submit" value="Submit">
   </form>
+</section>
+</main>
 </body>
 </html>

@@ -16,14 +16,31 @@
 
 <body>
   <header>
-    <button id="toggle">Light/Dark Mode</button>
+    <h1>My First Blog</h1>
     <button id="back">Back</button>
+    <button id="toggle">Light/Dark Mode</button>
   </header>
 <main>
   <div class="circle"></div>
-</main>
+  <div id="blogPost"></div>
+
+  <script>
+
+    const blogContainer = document.getElementById('blogPost');
+
+    posts.forEach(post => {
+      const postElement = document.createElement('article');
+      postElement.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p>`;
+      blogContainer.appendChild(postElement);
+    });
+  </script>
+
+  </main>
   <!-- TODO: Create header, main, and footer elements -->
-<footer></footer>
+<footer>
+  <h2 style="text-align: center;">A Tyler Caelwaerts Production</h2>
+</footer>
+
 </body>
 
 </html>
