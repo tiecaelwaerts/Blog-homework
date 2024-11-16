@@ -1,6 +1,6 @@
 
 const mainElement = document.querySelector('main');
-const backButton = document.querySelector('back');
+const backButton = document.getElementById('back');
 
 // TODO: Create a function that builds an element and appends it to the DOM
 
@@ -13,20 +13,22 @@ function createAndAppendElement(tagName, parentSelector, textContent) {
         parentElement.appendChild(newElement);
     }
     else {
-        console.error('Parent element not found');1
+        console.error('Parent element not found');
     }
 }
 // TODO: Create a function that handles the case where there are no blog posts to display
 
 function displayBlogPosts() {
-    const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-    const postsContainer = document.getElementById('postsContainer');
-    postsContainer.innerHTML = '';
+    const blogPosts = JSON.parse(localStorage.getItem('blog-posts')) || [];
+    const postsContainer = document.getElementById('posts');
+    const noPostsMessage = document.getElementById('noPostsMessage');
 
     if (blogPosts.length === 0) {
-        postsContainer.innerHTML = '<p>No Blog posts yet...</p>';
+        noPostsMessage.style.display = 'block';
     }
     else {
+        noPostsMessage.style.display = 'none';
+
         blogPosts.forEach(post => {
             const postElement = document.createElement('div');
             postElement.innerHTML = `
@@ -43,11 +45,12 @@ function displayBlogPosts() {
 
 function renderBlogList() {
 
-const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+const blogPosts = JSON.parse(localStorage.getItem('blog-posts')) || [];
+const blogList = document.getElementById('blogList')
 
 if (blogPosts.length > 0) {
     blogPosts.forEach(post => {
-        const postElement = document.createElement('div');
+        const postElement = document.createElement('article');
         postElement.classList.add('blog-post');
         postElement.innerHTML = `
             <h2>${post.title}</h2>
@@ -74,6 +77,7 @@ renderBlogList();
 
 // TODO: Redirect to the home page using the `redirectPage` function found in logic.js when the back button is clicked
 
-backButton.addEventListener('click', function() {
-    redirectPage();
-});
+backButton.addEventListener('click', () => {
+      redirectToPage('index.html');
+})
+
